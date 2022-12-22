@@ -1,21 +1,44 @@
 <template>
   <div class="IndexChat">
     <section class="IndexChat-conversation">
-      <div class="IndexChat-Answer">
+      <div v-if="currentAnimal" class="IndexChat-Answer">
         <img src="" alt="">
-        <p>Hola</p>
+        <p>{{ currentAnimal }}</p>
+        <div class="IndexChat-icons">
+        </div>
+      </div>
+      <div v-if="this.$store.state.response" class="IndexChat-Answer IndexChat-chatAnswer">
+        <img src="" alt="">
+        <p>{{ this.$store.state.response }}</p>
         <div class="IndexChat-icons">
         </div>
       </div>
     </section>
     <section class="IndexChat-input">
-      <input type="text" class="IndexChat-text">
-      <input type="submit" class="IndexChat-button">
+      <input type="text" class="IndexChat-text" v-model="text">
+      <input type="submit" class="IndexChat-button" @click.prevent="onSubmit">
     </section>
   </div>
 </template>
 
-<script setup>
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      text: '',
+      currentAnimal: ''
+    }
+  },
+  methods: {
+    onSubmit() {
+      this.$store.dispatch('onSubmit', this.text);
+      this.currentAnimal = this.text;
+      this.text = '';
+    }
+  }
+})
 
 </script>
 
