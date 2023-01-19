@@ -17,7 +17,8 @@ export default createStore({
   actions: {
     async onSubmit({ commit, state }, text) {
       const capitalizedText = text[0].toUpperCase() + text.slice(1).toLowerCase();
-      const tempText = '\nHuman: ' + capitalizedText;
+      const tempText = '\nHuman: ' + capitalizedText + '\nAI:';
+      console.log(tempText)
       commit('CHANGE_CONVERSATION', tempText);
       
       const response = await generate(state.conversation);

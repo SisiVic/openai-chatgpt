@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
@@ -16,13 +16,12 @@ export default async function (req) {
     presence_penalty: 0.6,
     stop: ["\nHuman:", "\nAI:"],
   });
-  console.log(response)
   return response.data.choices[0].text;
 }
 
 function generatePrompt(conversation) {
   const tempConversation = conversation.join('');
-  console.log('join', tempConversation)
+  console.log(tempConversation)
   return tempConversation
   /* return `The following is a conversation with an AI assistant. The assistant is helpful, 
     creative, clever, and very friendly.\n\nHuman: ${capitalizedText} \nAI:`; */
