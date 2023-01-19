@@ -1,9 +1,9 @@
 <template>
   <div class="IndexChat">
     <section class="IndexChat-conversation">
-      <div v-if="currentAnimal" class="IndexChat-Answer">
+      <div v-if="currentText" class="IndexChat-Answer">
         <img src="" alt="">
-        <p>{{ currentAnimal }}</p>
+        <p>{{ currentText }}</p>
         <div class="IndexChat-icons">
         </div>
       </div>
@@ -28,13 +28,13 @@ export default defineComponent({
   data() {
     return {
       text: '',
-      currentAnimal: ''
+      currentText: ''
     }
   },
   methods: {
     onSubmit() {
       this.$store.dispatch('onSubmit', this.text);
-      this.currentAnimal = this.text;
+      this.currentText = this.text;
       this.text = '';
     }
   }
