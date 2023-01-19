@@ -14,17 +14,16 @@ export default async function (req) {
     top_p: 1,
     frequency_penalty: 0.0,
     presence_penalty: 0.6,
-    stop: [" Human:", " AI:"],
+    stop: ["\nHuman:", "\nAI:"],
   });
   console.log(response)
   return response.data.choices[0].text;
 }
 
-function generatePrompt(text) {
-  const capitalizedText = text[0].toUpperCase() + text.slice(1).toLowerCase();
-  console.log(capitalizedText)
-  
-  return capitalizedText
+function generatePrompt(conversation) {
+  const tempConversation = conversation.join('');
+  console.log('join', tempConversation)
+  return tempConversation
   /* return `The following is a conversation with an AI assistant. The assistant is helpful, 
     creative, clever, and very friendly.\n\nHuman: ${capitalizedText} \nAI:`; */
 }
