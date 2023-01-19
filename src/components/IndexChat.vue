@@ -44,9 +44,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .IndexChat {
-  height: 100%;
+  height: 80%;
   .IndexChat-conversation {
-    height: 90%;
+    height: 70%;
     .IndexChat-Answer {
       width: 60%;
       padding: 15px 0;
@@ -74,7 +74,6 @@ export default defineComponent({
   .IndexChat-input {
     display: flex;
     justify-content: center;
-    height: 10%;
 
     .IndexChat-text {
       height: 30px;
