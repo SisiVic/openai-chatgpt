@@ -4,7 +4,7 @@ import generate from '../components/generate.js';
 export default createStore({
   state: {
     response: '',
-    conversation: [],
+    conversation: ['The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.'],
   },
   mutations: {
     CHANGE_RESPONSE(state, response) {
